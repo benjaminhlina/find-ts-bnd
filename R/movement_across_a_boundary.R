@@ -22,16 +22,25 @@ dat <- read_csv(here("data",
 glimpse(dat)
 
 dat 
+
+# 
+dat_sf <- dat %>% 
+  st_as_sf(coords = c("lon", "lat"), crs = 4326) %>% 
+  group_by(id) %>% 
+  summarise(do_union = FALSE) %>% 
+  st_cast("LINESTRING")
 # ---- create example boundary ---- 
 bnd <- st_read(dsn = here("shapefile", 
                           "."), 
-               layer = "example_mpa")
-
+               layer = "example_mpa") %>% 
+  st_cast("MULTILINESTRING")
+  
+bnd
 # ---- plot tracks ----- 
 
 ggplot() + 
-  geom_sf(data = bnd, fill = NA, colour = "blue") + 
-  geom_line(data = dat, aes(x = lon, y = lat)) + 
+  geom_sf(data = bnd, fill = NA, colour = "blue", linewidth = 1) + 
+  geom_sf(data = dat_sf) + 
   theme_bw(
     base_size = 15
   ) + 
