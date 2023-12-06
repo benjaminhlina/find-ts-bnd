@@ -21,7 +21,6 @@ dat <- read_csv(here("data",
 
 glimpse(dat)
 
-dat 
 
 # 
 dat_sf <- dat %>% 
@@ -30,7 +29,8 @@ dat_sf <- dat %>%
   summarise(do_union = FALSE) %>% 
   st_cast("LINESTRING")
 # ---- create example boundary ---- 
-bnd <- st_read(dsn = here("shapefile", 
+bnd <- st_read(dsn = here("data", 
+                          "shapefile", 
                           "."), 
                layer = "example_mpa") %>% 
   st_cast("MULTILINESTRING")
