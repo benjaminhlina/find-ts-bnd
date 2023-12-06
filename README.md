@@ -1,0 +1,31 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# Animal to movemenet across a boundary
+
+### Our Objectives
+
+The purpose of the is vignette is to determine when (i.e., time stamps)
+and how long, an animal takes to cross a boundary (i.e., line or
+polygon). Specifically we want to identify the nodes on the track that
+straddle the boundary, and identify the time between nodes. The rational
+for wanting to determine time spent crossing a boundary could be
+multiple situations. For example, wanting to estimate the amount of time
+it took for a fish to migrate into or out of a marine protected area
+(MPA) using satellite or acoustic telemetry. This vignette was inspired
+the the following [twitter
+post](https://twitter.com/spoonbill_hank/status/1731742735453880428) and
+the initial ideas of how to solve this were inspired by the following
+[blog post](https://www.jessesadler.com/post/network-analysis-with-r/)
+focused on network analysis by [Jesse
+Sadler](https://www.jessesadler.com/), and chunks of code were used from
+[Shortest Paths Within a Boundary -
+{pathroutr}](https://blog.benjaminhlina.com/posts/post-with-code/shortest-path-pathroutr/shortest_path_example_pathroutr.html)
+and functions from [{soapcheckr}](https://github.com/dill/soapcheckr).
+
+You can download and unzip this vignette using the following code:
+
+``` r
+install.packages("usethis")
+usethis::use_course("https://github.com/benjaminhlina/find-ts-bnd/archive/refs/heads/master.zip")
+```
