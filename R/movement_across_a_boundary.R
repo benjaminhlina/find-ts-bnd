@@ -112,7 +112,19 @@ tracks_sf_x <- tracks_sf %>%
 # ----- plot all tracks that cross boundary ---- 
 ggplot() + 
   geom_sf(data = bnd, colour = "blue", size = 1, fill = NA) + 
-  geom_sf(data = tracks_sf_x)
+  geom_sf(data = tracks_sf_x) +
+  theme_bw(
+    base_size = 15
+  ) + 
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_text(colour = "black")
+  ) + 
+  labs(
+    x = "Longitude", 
+    y = "Latitude"
+  )
+  
 
 
 # ---- create time differnce column ---- 
