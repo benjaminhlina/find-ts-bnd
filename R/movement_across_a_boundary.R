@@ -97,7 +97,7 @@ tracks_sf <- tracks_sf %>%
   dplyr::select(-c("lon", "llon"))
 
 
-
+tracks_sf
 tracks_sf <- tracks_sf %>% 
   mutate(
     x_bnd = st_intersects(bnd, tracks_sf, sparse = FALSE)[TRUE]
@@ -111,7 +111,7 @@ tracks_sf_x <- tracks_sf %>%
 
 # ----- plot all tracks that cross boundary ---- 
 ggplot() + 
-  geom_sf(data = bnd, colour = "blue", size = 1) + 
+  geom_sf(data = bnd, colour = "blue", size = 1, fill = NA) + 
   geom_sf(data = tracks_sf_x)
 
 
